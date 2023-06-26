@@ -435,6 +435,7 @@ BFslogOR <- Vectorize(.BFslogOR)
     )
     type <- match.arg(type)
     if (type != "two.sample") {
+        startpar <- max(c(to^2 - 1, 0))/(1/n1o + 1/n2o)
         if (n1o != n2o) {
             warning(paste0('different n1o and n2o supplied but type set to "', type,
                            '", using no = n1o'))
@@ -443,14 +444,16 @@ BFslogOR <- Vectorize(.BFslogOR)
             warning(paste0('different n1r and n2r supplied but type set to "', type,
                            '", using nr = n1r'))
         }
+    } else {
+        startpar <- max(c(to^2 - 1, 0))/n1o
     }
 
     suppressWarnings({
         ## compute minimum BF for original data
-        minBFoptim <- stats::optim(par = 1, fn = function(ss2) {
-            BFoSMD(to = to, n1o = n1o, n2o = n2o, ss = sqrt(ss2), type = type)
+        minBFoptim <- stats::optim(par = startpar, fn = function(ss) {
+            BFoSMD(to = to, n1o = n1o, n2o = n2o, ss = ss, type = type)
         }, method = "L-BFGS-B", lower = 0, upper = Inf)
-        ssminBFo <- sqrt(minBFoptim$par)
+        ssminBFo <- minBFoptim$par
         minBFo <- minBFoptim$value
 
         ## when ssmin = 0, check by hand whether success at level = 1

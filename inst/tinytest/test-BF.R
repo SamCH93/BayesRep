@@ -145,12 +145,12 @@ logORtable <- structure(list(study = c("Balafoutas and Sutter (2012), Science",
 ##                                        ar = ar, br = br, cr = cr, dr = dr,
 ##                                        method = "integration"))
 ## expect_equal(bfslogor1, logORtable$bfsint,
-##              info = "BFr exact for logOR (integration) as in Table 1 from Pawel and Held (2022)")
+##              info = "BFslogOR (integration) as in Table 1 from Pawel and Held (2022)")
 ## bfslogor2 <- with(logORtable, BFslogOR(ao = ao, bo = bo, co = co, do = do,
 ##                                        ar = ar, br = br, cr = cr, dr = dr,
 ##                                        method = "hypergeo"))
 ## expect_equal(bfslogor2, logORtable$bfshyg,
-##              info = "BFr exact for logOR (hypergeo) as in Table 1 from Pawel and Held (2022)")
+##              info = "BFslogOR (hypergeo) as in Table 1 from Pawel and Held (2022)")
 
 ## BFrlogOR tests
 bfrlogor1 <- with(logORtable, BFrlogOR(ao = ao, bo = bo, co = co, do = do,
@@ -221,14 +221,14 @@ smdTable <- structure(list(study = c("Ackerman et al. (2010), Science",
 smd1 <- subset(smdTable, type == "SMD")
 smd2 <- subset(smdTable, type == "SM")
 
-## BFsSMD
+## BFsSMD (put some tolerance because optimization has slightly changed)
 bfssmd1 <- with(smd1, BFsSMD(to = to, n1o = n1o, n2o = n2o, tr = tr, n1r = n1r,
                              n2r = n2r, type = "two.sample"))
-expect_equal(bfssmd1, smd1$bfsSMD,
+expect_equal(log(bfssmd1), log(smd1$bfsSMD), tolerance = 0.001,
              info = "BFsSMD (two.sample) as in Table 1 from Pawel and Held (2022)")
 bfssmd2 <- with(smd2, BFsSMD(to = to, no = n1o, tr = tr, nr = n1r,
                              type = "one.sample"))
-expect_equal(bfssmd2, smd2$bfsSMD,
+expect_equal(log(bfssmd2), log(smd2$bfsSMD), tolerance = 0.001,
              info = "BFsSMD (one.sample) as in Table 1 from Pawel and Held (2022)")
 
 ## BFrSMD
