@@ -2,4 +2,5 @@ LICENSE
 .github
 .gitignore
 Makefile
+posterior.png
 out/
