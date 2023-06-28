@@ -1,5 +1,5 @@
 Package: BayesRep
-Version: 0.42
+Version: 0.42.2
 Date: 2023-06-28
 Authors@R:
     person(given = "Samuel",

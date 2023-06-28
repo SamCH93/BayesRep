@@ -1,3 +1,8 @@
+# BayesRep 0.42.2
+- removed a test of `BFrlogOR` with `method = "hypergeo"` that fails on CRAN
+  M1mac, I cannot reproduce the error (the test succeeds on CRAN's macOS builder
+  and a coworkers M1 machine)
+
 # BayesRep 0.42
 
 - CRAN submission
