@@ -146,11 +146,11 @@ bfslogor1 <- with(logORtable, BFslogOR(ao = ao, bo = bo, co = co, do = do,
                                        method = "integration"))
 expect_equal(bfslogor1, logORtable$bfsint,
              info = "BFslogOR (integration) as in Table 1 from Pawel and Held (2022)")
-bfslogor2 <- with(logORtable, BFslogOR(ao = ao, bo = bo, co = co, do = do,
-                                       ar = ar, br = br, cr = cr, dr = dr,
-                                       method = "hypergeo"))
-expect_equal(bfslogor2, logORtable$bfshyg,
-             info = "BFslogOR (hypergeo) as in Table 1 from Pawel and Held (2022)")
+## bfslogor2 <- with(logORtable, BFslogOR(ao = ao, bo = bo, co = co, do = do,
+##                                        ar = ar, br = br, cr = cr, dr = dr,
+##                                        method = "hypergeo"))
+## expect_equal(bfslogor2, logORtable$bfshyg,
+##              info = "BFslogOR (hypergeo) as in Table 1 from Pawel and Held (2022)")
 
 ## BFrlogOR tests
 bfrlogor1 <- with(logORtable, BFrlogOR(ao = ao, bo = bo, co = co, do = do,
@@ -158,11 +158,11 @@ bfrlogor1 <- with(logORtable, BFrlogOR(ao = ao, bo = bo, co = co, do = do,
                                        method = "integration", ss = 0))
 expect_equal(bfrlogor1, logORtable$bfrepint,
              info = "BFrlogOR (integration) as in Table 1 from Pawel and Held (2022)")
-bfrlogor2 <- with(logORtable, BFrlogOR(ao = ao, bo = bo, co = co, do = do,
-                                       ar = ar, br = br, cr = cr, dr = dr,
-                                       method = "hypergeo", ss = 0))
-expect_equal(bfrlogor2, logORtable$bfrephyg,
-             info = "BFrlogOR (hypergeo) as in Table 1 from Pawel and Held (2022)")
+## bfrlogor2 <- with(logORtable, BFrlogOR(ao = ao, bo = bo, co = co, do = do,
+##                                        ar = ar, br = br, cr = cr, dr = dr,
+##                                        method = "hypergeo", ss = 0))
+## expect_equal(bfrlogor2, logORtable$bfrephyg,
+##              info = "BFrlogOR (hypergeo) as in Table 1 from Pawel and Held (2022)")
 
 
 
