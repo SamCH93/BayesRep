@@ -140,17 +140,17 @@ logORtable <- structure(list(study = c("Balafoutas and Sutter (2012), Science",
                                           0.0000595783977455087)),
                         class = "data.frame", row.names = c(NA, -3L))
 
-## ## BFslogOR tests (take too long, don't run by default)
-## bfslogor1 <- with(logORtable, BFslogOR(ao = ao, bo = bo, co = co, do = do,
-##                                        ar = ar, br = br, cr = cr, dr = dr,
-##                                        method = "integration"))
-## expect_equal(bfslogor1, logORtable$bfsint,
-##              info = "BFslogOR (integration) as in Table 1 from Pawel and Held (2022)")
-## bfslogor2 <- with(logORtable, BFslogOR(ao = ao, bo = bo, co = co, do = do,
-##                                        ar = ar, br = br, cr = cr, dr = dr,
-##                                        method = "hypergeo"))
-## expect_equal(bfslogor2, logORtable$bfshyg,
-##              info = "BFslogOR (hypergeo) as in Table 1 from Pawel and Held (2022)")
+## BFslogOR tests (take too long, don't run by default)
+bfslogor1 <- with(logORtable, BFslogOR(ao = ao, bo = bo, co = co, do = do,
+                                       ar = ar, br = br, cr = cr, dr = dr,
+                                       method = "integration"))
+expect_equal(bfslogor1, logORtable$bfsint,
+             info = "BFslogOR (integration) as in Table 1 from Pawel and Held (2022)")
+bfslogor2 <- with(logORtable, BFslogOR(ao = ao, bo = bo, co = co, do = do,
+                                       ar = ar, br = br, cr = cr, dr = dr,
+                                       method = "hypergeo"))
+expect_equal(bfslogor2, logORtable$bfshyg,
+             info = "BFslogOR (hypergeo) as in Table 1 from Pawel and Held (2022)")
 
 ## BFrlogOR tests
 bfrlogor1 <- with(logORtable, BFrlogOR(ao = ao, bo = bo, co = co, do = do,

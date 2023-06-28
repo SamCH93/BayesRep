@@ -1,6 +1,6 @@
 Package: BayesRep
 Version: 0.42
-Date: 2023-06-26
+Date: 2023-06-28
 Authors@R:
     person(given = "Samuel",
            family = "Pawel",
