@@ -42,8 +42,4 @@
 #'     Society Series B: Statistical Methodology, 84(3): 879-911.
 #'     \doi{10.1111/rssb.12491}
 #'
-#' 
-#' @docType package
-#' @name BayesRep
-
-NULL
+"_PACKAGE"

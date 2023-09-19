@@ -1,3 +1,7 @@
+# BayesRep 0.42.3
+- fixed roxygen2 issue with package documentation
+  (<https://github.com/r-lib/roxygen2/issues/1491>)
+
 # BayesRep 0.42.2
 - removed a test of `BFrlogOR` with `method = "hypergeo"` that fails on CRAN
   M1mac, I cannot reproduce the error (the test succeeds on CRAN's macOS builder
